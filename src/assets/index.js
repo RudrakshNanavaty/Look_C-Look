@@ -3,8 +3,8 @@ const assets = {
 		palette: {
 			mode: 'light',
 			background: {
-				default: '#e5e5e5',
-				paper: '#f5f5f5'
+				paper: '#a5c8ff',
+				default: '#d4e3ff'
 			}
 		},
 		shape: { borderRadius: 12 }

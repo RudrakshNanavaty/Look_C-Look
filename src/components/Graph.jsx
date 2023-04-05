@@ -1,5 +1,6 @@
+// MUI
 import { Paper } from '@mui/material';
-
+// DevExtreme React Chart
 import {
 	Chart,
 	Series,
@@ -9,18 +10,16 @@ import {
 	Legend,
 	Title
 } from 'devextreme-react/chart';
-
+// local files
 import logic from './logic';
 
 const Graph = props => {
 	const { records, pivot, algorithm } = props;
 
-	const result =
+	const results =
 		algorithm === 'look'
 			? logic.look(records, pivot)
 			: logic.cLook(records, pivot);
-
-	console.log(result);
 
 	return (
 		<Paper
@@ -31,11 +30,13 @@ const Graph = props => {
 				display: algorithm ? 'block' : 'none'
 			}}
 		>
-			<Chart
-				palette={['#1976d2', '#42a5f5', '#1265c0']}
-				dataSource={result.records}
-			>
-				<Title text={`Total Seek Time: ${result.seekTime} ns`} />
+			<Chart palette={['#1976d2']} dataSource={results.records}>
+				<Title
+					text={
+						results.seekTime &&
+						`Total Seek Time: ${results.seekTime} ns`
+					}
+				/>
 				<Series argumentField='time' valueField='value' />
 
 				{/* Enabling gridlines within the chart */}

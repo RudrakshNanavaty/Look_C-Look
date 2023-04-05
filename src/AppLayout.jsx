@@ -13,7 +13,6 @@ const AppLayout = () => {
 	const [algorithm, setAlgorithm] = useState('');
 
 	return (
-		// Sabka Baap
 		<Grid
 			container
 			sx={{
